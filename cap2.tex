@@ -118,7 +118,12 @@ O propósito deste capítulo é revisar alguns conceitos fundamentais da termodi
     dG = 0 \quad \text{e} \quad G \, \text{é mínima}.
     \]
      \item \textbf{Problema 2.2} Discuta a possibilidade de um sistema físico ter uma temperatura negativa.
-     \textbf{Resposta:} Para que um sistema físico tenha uma temperatura negativa, deve ocorrer uma inversão na relação usual entre energia e entropia. Ou seja, em vez de a entropia aumentar com a energia, ela diminui à medida que a energia interna aumenta. Isso implica que:
+     \textbf{Resposta:} A temperatura  \( T \) está relacionada à variação da energia interna \( U \) em função da entropia \( S \), segundo:
+
+\[
+\frac{1}{T} = \left( \frac{\partial S}{\partial U} \right)_V
+\]
+Para que um sistema físico tenha uma temperatura negativa, deve ocorrer uma inversão na relação usual entre energia e entropia. Ou seja, em vez de a entropia aumentar com a energia, ela diminui à medida que a energia interna aumenta. Isso implica que:
      \[
      \frac{\partial S}{\partial U} < 0
      \]
@@ -128,11 +133,11 @@ O propósito deste capítulo é revisar alguns conceitos fundamentais da termodi
      \]
      Esse comportamento é possível em sistemas físicos que possuem um limite superior para a energia, ou seja, sistemas nos quais a energia das partículas não pode ser aumentada indefinidamente. Em tais sistemas, a entropia atinge um máximo para uma certa energia, e, além desse ponto, se a energia aumentar mais, a entropia começa a diminuir, levando a uma temperatura negativa.
      
-     Considere um sistema de energia limitada. Ou seja, o sistema tem uma energia mínima possível, que podemos considerar como sendo
+     Considere um sistema de energia limitada (temperaturas negativas só podem ocorrer em sistemas que têm um número limitado de estados energéticos. Em sistemas convencionais como gases ideais, onde a energia pode crescer indefinidamente, não é possível ter temperatura negativa, pois a entropia nunca diminui com o aumento da energia). Ou seja, o sistema tem uma energia mínima possível, que podemos considerar como sendo
      \[
      U = 0
      \]
-     e uma energia máxima possível, digamos $U_{max}$. Nesse sistema, é provável que muito poucos microestados (talvez apenas um) correspondam a $U = 0$ e também que muito poucos correspondam a $U = U_{max}$. Assim, a entropia $S(U)$ é muito pequena tanto em $U = 0$ quanto em $U = U_{max}$, e há alguma energia intermediária $U*$ na qual $S(U)$ é máxima. A temperatura inversa 
+     e uma energia máxima possível, digamos $U_{max}$. Nesse sistema, é provável que muito poucos microestados (talvez apenas um) correspondam a $U = 0$ e também que muito poucos correspondam a $U = U_{max}$. Assim, a entropia $S(U)$ é muito pequena tanto em $U = 0$ quanto em $U = U_{max}$, e há alguma energia intermediária $U^{*}$ na qual $S(U)$ é máxima. A temperatura inversa 
      \[
      T^{-1} = \frac{\partial S}{\partial U}
      \]
