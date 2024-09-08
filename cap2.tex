@@ -13,7 +13,7 @@
 \begin{document}
 \medskip
 \author{Tradução Juan Carlos Teran}
-\title{TERMODINÂMICA}
+\title{Mecânica Estadística}
 \maketitle
 O propósito deste capítulo é revisar alguns conceitos fundamentais da termodinâmica, que formam uma base essencial para o estudo da mecânica estatística. Os problemas 2.1-2.3 lidam com a primeira e a segunda leis e os conceitos associados de temperatura e potenciais termodinâmicos. Uma variedade de relações entre grandezas termodinâmicas, incluindo as relações de Maxwell, pode ser derivada desses princípios básicos, juntamente com as regras do cálculo diferencial, e os métodos para obter tais relações são ilustrados nos problemas 2.4 e 2.5. O problema 2.6 ilustra a natureza das mudanças de entropia em processos irreversíveis, enquanto os problemas 2.7-2.9 investigam as equações de estado de sistemas simples e suas consequências para vários processos termodinâmicos. Finalmente, o problema 2.10 lida com o tratamento termodinâmico de um material magnético e o problema 2.11 trata o comportamento de gases relativísticos em um cenário cosmológico.
 
@@ -152,10 +152,58 @@ Em $U = U^{*}$, a temperatura é positiva para $U < U^{*}$ e negativa para$ U > 
 
 No entanto, é possível criar um estado de temperatura negativa por meios indiretos. O exemplo clássico é o de uma coleção de momentos magnéticos de núcleos atômicos, que interagem muito fracamente com os demais graus de liberdade em seu material hospedeiro e podem ser considerados efetivamente como um sistema isolado. A energia de um momento magnético (ou spin, para simplificar) é apenas aquela devido à sua orientação em um campo magnético aplicado. O sistema tem sua energia mínima quando todos os spins estão paralelos ao campo e sua energia máxima quando todos estão antiparalelos ao campo. O estado de temperatura infinita de entropia máxima corresponde a orientações completamente aleatórias dos spins. Em uma temperatura positiva baixa, os spins estarão predominantemente paralelos ao campo. Se a direção do campo for invertida rapidamente, os spins se encontrarão predominantemente antiparalelos ao campo e, portanto, em um estado de temperatura negativa.
      
-     \item Problema 2.3 Compare a diminuição na entropia do cérebro de um leitor durante a leitura de um livro com o aumento na entropia devido à iluminação (por meio de uma lâmpada elétrica).
+     \item \textbf{Problema 2.3} Compare a diminuição na entropia do cérebro de um leitor durante a leitura de um livro com o aumento na entropia devido à iluminação (por meio de uma lâmpada elétrica).
  \end{itemize}
+\textbf{Resposta:} A alteração na entropia resultante da assimilação de uma quantidade $\Delta I$ de informações (medida em bits) é "atribuída a \textbf{Claude Shannon}, o pai da teoria da informação, ele introduziu essa relação em seu artigo seminal de 1948, "A Mathematical Theory of Communication"
+\[
+\Delta S = -\frac{k}{\log_{2} e} \Delta I
+\]
+"A equação descreve a relação entre a mudança na entropia de um sistema e a quantidade de informações que ele assimila. O sinal negativo indica que a obtenção de informações leva a uma diminuição da entropia, o que se alinha à ideia de que as informações representam ordem e reduzem a incerteza."
+Um livro que usa apenas o alfabeto latino e os sinais de pontuação requer cerca de $2^5
+$ caracteres diferentes, portanto, são necessários 5 bits para especificar qualquer caractere. Assim, o conteúdo de informações de um livro de 400 páginas, em que cada página tem 50 linhas de 70 caracteres cada, é de$\Delta I=5×70×50×400=7×10^6$ bits. Então $\Delta S_ \text{brain}∼−10^{−16}  \text{J K}^{−1}$. Por outro lado, uma lâmpada elétrica que emite uma potência $P$ de, digamos, $100 W$ em seu entorno a uma temperatura $ T=300 K$ causa um aumento de entropia 
+\[
+\Delta S_{\text{bulb}} \sim \frac{Pt}{T} \sim 0.3t \text{ J K}^{-1}
+\]
+em que $t$ é o tempo (em segundos) gasto pelo processo de leitura. Temos então
+\[
+\frac{\Delta S_{brain}}{\Delta S_{bulb}} \sim - \frac{10^{-19}}{t^*}
+\]
+onde $t^*$ é o tempo medido em horas. Para tempos típicos de leitura (digamos, algumas horas), essa proporção é minúscula. Claro, ela será ainda menor se levarmos em conta a produção de entropia por todos os processos metabólicos do corpo do leitor, bem como a da lâmpada. 
 
+\textbf{Problema 2.11} Aproximadamente $10^{-4}$ segundos após o Big Bang, o conteúdo material do Universo primordial consistia principalmente em elétrons e pósitrons $e^{\pm }$, neutrinos $\nu$ e fótons $\gamma$, todos em equilíbrio térmico a uma temperatura de cerca de $10^{12}$ K. O volume $V$ de uma região 'co-móvel' do espaço se expande com o tempo e, enquanto o número de partículas em um gás relativístico ocupando essa região for constante, a temperatura desse gás cai, com $T^3 \propto V^{-1}$. À medida que a temperatura caiu para cerca de $10^{11}$ K, a taxa de interações entre os neutrinos e as outras partículas tornou-se desprezível e, a partir de então, a evolução do gás de neutrinos estava completamente desacoplado daquele dos elétrons, pósitrons e fótons. A uma temperatura de cerca de $6 x 10^{9}$ K (para a qual $kT$ é igual à energia de repouso de um elétron), elétrons e pósitrons (dos quais havia aproximadamente números iguais) aniquilaram-se rapidamente, produzindo fótons. Como resultado, o gás de fótons restante estava a uma temperatura $T_\gamma$ um pouco mais alta do que a temperatura $T_\nu$ dos neutrinos.
 
+Hoje, a temperatura dos fótons (a radiação cósmica de fundo em micro-ondas) é de cerca de 2,7 K. Encontre a temperatura atual dos neutrinos relíquia, assumindo que o processo de aniquilação foi reversível e que o Universo naquele tempo era espacialmente homogêneo. As densidades de energia dos gases relativísticos em questão são dadas por $u_\nu = cT^4$, $u_e = 2cT^4$ e $u_\gamma = \frac{8}{7}cT^4$, onde c é uma constante. (O fator 2 é responsável pela presença de elétrons e pósitrons e o fator de $\frac{8}{7}$ pela diferença entre as estatísticas de Bose e Fermi.)
+
+\textbf{Resposta:} Um instante antes da aniquilação de $e^{\pm }$, neutrinos e fótons estavam na mesma temperatura, digamos, $T$. Consideramos uma região do espaço cujo volume naquele momento era $V$. Um curto tempo depois, quando a aniquilação estava completa, o volume havia aumentado, digamos, para $V'$. Chamamos a temperatura do fóton neste momento posterior de $T'_\gamma$ e a temperatura do neutrino de $T'_\nu$. Desde então, ambas as temperaturas caíram pelo mesmo fator, então sua razão agora é
+\[
+\frac{T^\text{agora}_\nu}{T^\text{agora}_\gamma}=\frac{T'_\nu}{T'_\gamma}
+\]
+ e precisamos calcular essa razão.
+ Os neutrinos não foram afetados pela aniquilação, então temos
+\[
+V T^3 = V' T'^3_\nu
+\]
+
+Se o Universo fosse homogêneo, não haveria gradiente de temperatura e, portanto, nenhum fluxo de calor. Consequentemente, se o processo de aniquilação fosse reversível (o que é uma questão de suposição), então a entropia total da região considerada permaneceria constante. Será, portanto, útil encontrar as entropias dos gases em termos de seu volume e temperatura. A partir da primeira lei, a energia total $U$ e a entropia $S$ de um gás em um volume $V$ estão relacionadas por 
+\[
+\left( \frac{\partial U}{\partial T} \right)_V = T \left( \frac{\partial S}{\partial T} \right)_V
+\]
+ e, se $U = cT^4V$, podemos integrar essa relação para obter $ S = \frac{4}{3}cT^3V$. Nosso resultado anterior mostra que a entropia dos neutrinos permanece inalterada, e agora podemos descobrir o que está implícito na suposição de que a entropia do gás elétron-fóton também permanece inalterada. Imediatamente antes da aniquilação, a entropia no volume $V$ era
+\[
+S = S_e + S_\gamma = \frac{4}{3} \times 2cT^3V + \frac{4}{3} \times \frac{8}{7} cT^3V = \frac{88}{21} cT^3V
+\]
+ Após a aniquilação, a entropia dos fótons a uma temperatura $T'_\gamma$', em um volume $V'$, era 
+ \[
+ S' = \frac{4}{3} \times \frac{8}{7} c T_y'^3 V' = \frac{32}{21} c T_y'^3 V'
+ \]
+ Igualando S e S' e, em seguida, usando nosso primeiro resultado, descobrimos que 
+ \[
+ T_y'^3 = \frac{11}{4} \frac{V}{V'} T^3 = \frac{11}{4} T_v'^3
+ \]
+Como a razão dos volumes $\frac{V}{V'}$ se cancela, não importa exatamente quais dois instantes de tempo escolhemos antes e depois da aniquilação. Na verdade, poderíamos ter assumido que a aniquilação foi instantânea (e assim $V' = V$) e obtido o mesmo resultado, mas essa suposição não é totalmente realista. Assim, a razão $\frac{T'_\nu}{T'_\gamma}$' é igual a $\left( \frac{4}{11} \right)^{1/3}$ e a temperatura atual do neutrino é 
+\[
+T_v^\text{now} = \left( \frac{4}{11} \right)^{1/3} \times 2.7 \text{ K} \simeq 1.9 \text{ K}
+\]
 
 
 \end{document}
