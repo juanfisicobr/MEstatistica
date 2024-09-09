@@ -1,0 +1,84 @@
+\documentclass[12pt]{article}
+\usepackage[portuguese]{babel}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\newcommand{\numpy}{{\tt numpy}}   
+
+\topmargin -.5in
+\textheight 9in
+\oddsidemargin -.25in
+\evensidemargin -.25in
+\textwidth 7in
+
+\begin{document}
+\textbf{• Problema 4.2} Considere um sistema de partículas indistinguíveis cujos estados podem ser especificados da seguinte maneira:
+
+(i) Existem estados de partícula única, rotulados por um índice $i$, com energia $\varepsilon_i$, que serão degenerados ($\varepsilon_i$ pode ter o mesmo valor para vários valores de $i$) para partículas com spin não nulo.
+(ii) Cada estado de múltiplas partículas corresponde a um conjunto de números de ocupação $ {n_i}$, onde $ {n_i}$ conta o número de partículas ocupando o i-ésimo estado de partícula única e tem valores de 0 a $M$. Cada conjunto distinto de números de ocupação corresponde a um estado distinto.
+
+(a) Use o ensemble grande canônico para encontrar expressões para a pressão $P$, o número médio $\langle N \rangle$ de partículas e a energia interna $U = \langle E \rangle$ na forma $T^\alpha f(z)$, onde $z = e^{\beta \mu}$ é a fugacidade e a função $f$ é definida por uma integral adequada. Considere as energias de partícula única como $\varepsilon_i = \frac{|p_i|^2}{2m}$ e o espaço como sendo d-dimensional.
+
+ Usando a representação do número de ocupação, a energia de um estado de múltiplas partículas é $E = \sum_i n_i \epsilon_i$, e o número de partículas é $ N = \sum_i n_i$, então a função de partição grande canônica é 
+
+\[
+Z = \sum_{\{n_i\}} \exp \left( -\beta \sum_i n_i (\epsilon_i - \mu) \right) 
+= \prod_{i=0}^M \sum_{n_i=0}^\infty e^{-\beta (\epsilon_i - \mu)n_i}
+= \prod_{i=0}^M \frac{1 - q_i^{M+1}}{1 - q_i}
+\]
+onde $q_i = e^{-\beta (\epsilon_i - \mu)}$
+
+Funções termodinâmicas são obtidas de $ \ln Z$. Assumindo que os níveis de energia estão muito próximos, a soma sobre esses níveis de energia é precisamente aproximada por uma integral. Obtemos 
+\[
+\ln Z = \sum_i \ln \left( \frac{1 - q_i^{M+1}}{1 - q_i} \right) 
+\approx \int_0^\infty d\epsilon \, g(\epsilon) \ln \left( \frac{1 - q(\epsilon)^{M+1}}{1 - q(\epsilon)} \right)
+\]
+onde, para partículas de spin $s$, $g_s = 2s + 1$ é a degenerescência de spin de cada nível de energia e $g(\varepsilon)$ é a densidade de estados - o número de níveis de energia por unidade de intervalo de energia. Para avaliar essa quantidade, supomos que nosso sistema está encerrado em uma caixa hipercúbica$ d$-dimensional de lado $L$ e impomos como condição de contorno que as funções de onda se anulem nas paredes. Nessas condições, os valores permitidos do momento são $p = (\pi \hbar/L)n$, onde $n$ é um vetor de d inteiros positivos, em termos dos quais a energia de uma única partícula é $\varepsilon = |n|^2\pi^2\hbar^2/2mL^2$. O número de estados permitidos com energia menor ou igual a $\varepsilon$ é $2^{-d}$ vezes o volume de uma esfera $d$-dimensional de raio $R = \sqrt{2mL^2 \epsilon / \pi^2 \hbar^2}$ o qual é (ver Apêndice A) $2 \pi^{d/2} R^d / d \Gamma(d/2)$. Assim temos 
+\[
+g(\epsilon) = \frac{1}{2^d} \frac{d}{d \epsilon} \left( \frac{2 \pi^{d/2} R^d}{\Gamma(d/2)} \right) = c_d V \epsilon^{d/2 - 1}
+\]
+onde $c_d = (m/2 \pi \hbar^2)^{d/2} / \Gamma(d/2)$ e $V = L^d$ é o volume. Com a mudança de variável $\epsilon = kTx $ obtemos
+\[
+\begin{aligned}
+\ln Z &= c_d g_s V (kT)^{d/2} f_M(z) \\
+f_M(z) &= \int_0^\infty dx \, x^{d/2 - 1} \ln \left( \frac{1 - (ze^{-x})^{M+1}}{1 - ze^{-x}} \right)
+\end{aligned}
+\]
+e as funções termodinâmicas são dadas por
+\[
+\begin{aligned}
+P &= \frac{kT}{V} \ln Z = c_d g_s (kT)^{d/2 + 1} f_M(z) \\
+U &= - \left( \frac{\partial (\ln Z)}{\partial \beta} \right)_{z, V} = \frac{d}{2} c_d g_s V (kT)^{d/2 + 1} f_M(z) \\
+\langle N \rangle &= z \left( \frac{\partial (\ln Z)}{\partial z} \right)_{\beta, V} = c_d g_s V (kT)^{d/2} z \frac{d f_M(z)}{dz} \\
+\end{aligned}
+\]
+Observamos a relação $U = \frac{d}{2} PV $, válida tanto para gases clássicos quanto quânticos quando as partículas têm apenas energia translacional. Além disso, no limite de altas temperaturas, com um número médio fixo de partículas por unidade de volume, devemos ter $z \frac{df}{dz} \rightarrow 0 $. Como $df/dz > 0$, isso implica que $z \rightarrow 0$ e então descobrimos que $f(z) \rightarrow 0 $ também. Temos então $f(z) = \Gamma \left( \frac{d}{2} \right) z \\$ e recuperamos a equação de estado $PV = \langle N \rangle kT$ de um gás ideal clássico. 
+
+(b) Obtenha a probabilidade $P_i(n_i, T, μ)$ de encontrar ni partículas no i-ésimo estado à temperatura T. Calcule a flutuação quadrática média $(\Delta n_i)^2 \equiv \langle (n_i - \langle n_i \rangle)^2 \rangle$ em termos de temperatura.
+A expressão dada em (a) para $Z$ é um produto de probabilidades independentes não normalizadas para todos os números de ocupação, então é fácil escrever a distribuição de probabilidade normalizada para um deles:
+\[
+P(n_i, T, \mu) = \frac{e^{-\beta (\epsilon_i - \mu) n_i}}{\sum_{n_i=0}^M e^{-\beta (\epsilon_i - \mu) n_i}} = \frac{e^{-\beta (\epsilon_i - \mu) n_i}}{L(q_i)}
+\]
+onde $L(q_i) = \frac{(1 - q_i^{M+1})}{(1 - q_i)}$. Evidentemente, $L(q_i) $ desempenha o papel de uma função de partição para a distribuição dos números de ocupação de um estado de partícula única. A variância desta distribuição é
+\[
+(\Delta n_i)^2 = \sum_{n_i = 0}^M n_i^2 P(n_i, T, \mu) - \left( \sum_{n_i = 0}^M n_i P(n_i, T, \mu) \right)^2
+\]
+Isso pode ser expresso como
+\[
+(\Delta n_i)^2 = \left( \frac{\partial^2 [\ln(L(q_i))]}{\partial (\beta \epsilon_i)^2} \right)_{z} 
+= \frac{q_i^2 L(q_i) L''(q_i) + q_i L(q_i) L'(q_i) - q_i^2 L'(q_i)^2}{L(q_i)^2} \\
+\]
+
+onde a linha denota $d/dq_i$. Como será visto em (d), os casos fisicamente interessantes são $M = 1$, correspondendo à estatística de Fermi-Dirac, e $M \rightarrow \infty$ com $q < 1$, correspondendo à estatística de Bose-Einstein. Para esses casos, encontramos que $(\Delta n_i)^2_{FD} = \frac{q_i}{(1 + q_i)^2} \text{ e } (\Delta n_i)^2_{BE} = \frac{q_i}{(1 - q_i)^2}$.
+
+ 
+(c) Obtenha o número médio de ocupação$ \langle n(\varepsilon) \rangle$ de um nível de energia $\varepsilon$ e avalie-o em temperatura zero.
+
+(d) Como, se possível, podemos recuperar deste modelo a termodinâmica de partículas que obedecem às estatísticas de Bose-Einstein, Fermi-Dirac e Maxwell-Boltzmann?
+
+\textbf{• Problema 4.4} Encontre expressões para a pressão $P$, densidade de energia $u$, densidade de entropia $s$ e calor específico $C_v$ por unidade de volume da radiação de corpo negro em uma cavidade d-dimensional à temperatura $T$. Avalie essas quantidades explicitamente para d = 3. 
+
+\textbf{• Problema 4.6} Estados eletrônicos próximos ao topo de uma banda de energia em um metal cúbico simples podem ser tratados como estados de partículas livres com energias dadas por uma relação de dispersão da forma $\varepsilon (k) = \varepsilon_0 - A |k|^2$, onde $A$ é uma constante positiva. Encontre a densidade de estados $g(\varepsilon)$ para energias logo abaixo de $\varepsilon_0 $ em um cristal cúbico de lado $L$. As funções de onda podem ser consideradas como nulas nas bordas do cristal ou para satisfazer condições de contorno periódicas. Como $g(\varepsilon)$  depende da escolha das condições de contorno? 
+ 
+
+ 
+\end{document}

@@ -15,8 +15,6 @@
 \author{Tradução Juan Carlos Teran}
 \title{Mecânica Estadística}
 \maketitle
-O propósito deste capítulo é revisar alguns conceitos fundamentais da termodinâmica, que formam uma base essencial para o estudo da mecânica estatística. Os problemas 2.1-2.3 lidam com a primeira e a segunda leis e os conceitos associados de temperatura e potenciais termodinâmicos. Uma variedade de relações entre grandezas termodinâmicas, incluindo as relações de Maxwell, pode ser derivada desses princípios básicos, juntamente com as regras do cálculo diferencial, e os métodos para obter tais relações são ilustrados nos problemas 2.4 e 2.5. O problema 2.6 ilustra a natureza das mudanças de entropia em processos irreversíveis, enquanto os problemas 2.7-2.9 investigam as equações de estado de sistemas simples e suas consequências para vários processos termodinâmicos. Finalmente, o problema 2.10 lida com o tratamento termodinâmico de um material magnético e o problema 2.11 trata o comportamento de gases relativísticos em um cenário cosmológico.
-
 
  \begin{itemize}
      \item \textbf{Problema 2.1} Mostre que a energia livre de Helmholtz $F(T, V)$ de um sistema cujo volume é $V$ em contato com um banho térmico a temperatura $T$ é mínima no equilíbrio. Analogamente, mostre que a energia livre de Gibbs $G(T, P)$ de um sistema em contato com um banho a temperatura $T$ e pressão $P$ é mínima no equilíbrio.
@@ -142,25 +140,25 @@ Para que um sistema físico tenha uma temperatura negativa, deve ocorrer uma inv
      T^{-1} = \frac{\partial S}{\partial U}
      \]
      é zero.
-     \begin{figure}
-         \centering
-         \includegraphics[width=0.5\linewidth]{image.png}
-         \caption{Regiões de Temperatura Positiva e Negativa para um Sistema de Energia Limitada}
-         \label{fig:enter-label}
-     \end{figure}
+   
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{image2.png}
+    \caption{Regiões de Temperatura Positiva e Negativa para um Sistema de Energia}
+    \label{fig:enter-label}
+\end{figure}
 Em $U = U^{*}$, a temperatura é positiva para $U < U^{*}$ e negativa para$ U > U^{*}$ (figura 1). Note que as temperaturas $T = +\infty$ e $T = -\infty $ correspondem ao mesmo estado, $T^{-1} = 0$. Além disso, um estado de temperatura negativa tem maior energia e, consequentemente, é mais quente que um estado de temperatura positiva. A declaração de Clausius sobre a segunda lei nos diz que o calor não flui espontaneamente de um corpo mais frio para um corpo mais quente, então o sistema não pode ser aquecido a uma temperatura infinita ou negativa por um influxo de calor, desde que seus arredores estejam a uma temperatura positiva finita. O calor sempre fluirá para fora de um sistema de temperatura negativa em contato com um sistema de temperatura positiva.
 
 No entanto, é possível criar um estado de temperatura negativa por meios indiretos. O exemplo clássico é o de uma coleção de momentos magnéticos de núcleos atômicos, que interagem muito fracamente com os demais graus de liberdade em seu material hospedeiro e podem ser considerados efetivamente como um sistema isolado. A energia de um momento magnético (ou spin, para simplificar) é apenas aquela devido à sua orientação em um campo magnético aplicado. O sistema tem sua energia mínima quando todos os spins estão paralelos ao campo e sua energia máxima quando todos estão antiparalelos ao campo. O estado de temperatura infinita de entropia máxima corresponde a orientações completamente aleatórias dos spins. Em uma temperatura positiva baixa, os spins estarão predominantemente paralelos ao campo. Se a direção do campo for invertida rapidamente, os spins se encontrarão predominantemente antiparalelos ao campo e, portanto, em um estado de temperatura negativa.
      
      \item \textbf{Problema 2.3} Compare a diminuição na entropia do cérebro de um leitor durante a leitura de um livro com o aumento na entropia devido à iluminação (por meio de uma lâmpada elétrica).
- \end{itemize}
+
 \textbf{Resposta:} A alteração na entropia resultante da assimilação de uma quantidade $\Delta I$ de informações (medida em bits) é "atribuída a \textbf{Claude Shannon}, o pai da teoria da informação, ele introduziu essa relação em seu artigo seminal de 1948, "A Mathematical Theory of Communication"
 \[
 \Delta S = -\frac{k}{\log_{2} e} \Delta I
 \]
 "A equação descreve a relação entre a mudança na entropia de um sistema e a quantidade de informações que ele assimila. O sinal negativo indica que a obtenção de informações leva a uma diminuição da entropia, o que se alinha à ideia de que as informações representam ordem e reduzem a incerteza."
-Um livro que usa apenas o alfabeto latino e os sinais de pontuação requer cerca de $2^5
-$ caracteres diferentes, portanto, são necessários 5 bits para especificar qualquer caractere. Assim, o conteúdo de informações de um livro de 400 páginas, em que cada página tem 50 linhas de 70 caracteres cada, é de$\Delta I=5×70×50×400=7×10^6$ bits. Então $\Delta S_ \text{brain}∼−10^{−16}  \text{J K}^{−1}$. Por outro lado, uma lâmpada elétrica que emite uma potência $P$ de, digamos, $100 W$ em seu entorno a uma temperatura $ T=300 K$ causa um aumento de entropia 
+Um livro que usa apenas o alfabeto latino e os sinais de pontuação requer cerca de $2^5$ caracteres diferentes, portanto, são necessários 5 bits para especificar qualquer caractere. Assim, o conteúdo de informações de um livro de 400 páginas, em que cada página tem 50 linhas de 70 caracteres cada, é de $\Delta I = 5×70×50×400 = 7×10^6$ bits. Então $\Delta S_\text{brain} \sim -10^{−16} \text{JK}^{−1}$. Por outro lado, uma lâmpada elétrica que emite uma potência $P$ de, digamos, $100 W$ em seu entorno a uma temperatura $T = 300 K$ causa um aumento de entropia 
 \[
 \Delta S_{\text{bulb}} \sim \frac{Pt}{T} \sim 0.3t \text{ J K}^{-1}
 \]
@@ -170,7 +168,7 @@ em que $t$ é o tempo (em segundos) gasto pelo processo de leitura. Temos então
 \]
 onde $t^*$ é o tempo medido em horas. Para tempos típicos de leitura (digamos, algumas horas), essa proporção é minúscula. Claro, ela será ainda menor se levarmos em conta a produção de entropia por todos os processos metabólicos do corpo do leitor, bem como a da lâmpada. 
 
-\textbf{Problema 2.11} Aproximadamente $10^{-4}$ segundos após o Big Bang, o conteúdo material do Universo primordial consistia principalmente em elétrons e pósitrons $e^{\pm }$, neutrinos $\nu$ e fótons $\gamma$, todos em equilíbrio térmico a uma temperatura de cerca de $10^{12}$ K. O volume $V$ de uma região 'co-móvel' do espaço se expande com o tempo e, enquanto o número de partículas em um gás relativístico ocupando essa região for constante, a temperatura desse gás cai, com $T^3 \propto V^{-1}$. À medida que a temperatura caiu para cerca de $10^{11}$ K, a taxa de interações entre os neutrinos e as outras partículas tornou-se desprezível e, a partir de então, a evolução do gás de neutrinos estava completamente desacoplado daquele dos elétrons, pósitrons e fótons. A uma temperatura de cerca de $6 x 10^{9}$ K (para a qual $kT$ é igual à energia de repouso de um elétron), elétrons e pósitrons (dos quais havia aproximadamente números iguais) aniquilaram-se rapidamente, produzindo fótons. Como resultado, o gás de fótons restante estava a uma temperatura $T_\gamma$ um pouco mais alta do que a temperatura $T_\nu$ dos neutrinos.
+\item \textbf{Problema 2.11} Aproximadamente $10^{-4}$ segundos após o Big Bang, o conteúdo material do Universo primordial consistia principalmente em elétrons e pósitrons $e^{\pm }$, neutrinos $\nu$ e fótons $\gamma$, todos em equilíbrio térmico a uma temperatura de cerca de $10^{12}$ K. O volume $V$ de uma região 'co-móvel' do espaço se expande com o tempo e, enquanto o número de partículas em um gás relativístico ocupando essa região for constante, a temperatura desse gás cai, com $T^3 \propto V^{-1}$. À medida que a temperatura caiu para cerca de $10^{11}$ K, a taxa de interações entre os neutrinos e as outras partículas tornou-se desprezível e, a partir de então, a evolução do gás de neutrinos estava completamente desacoplado daquele dos elétrons, pósitrons e fótons. A uma temperatura de cerca de $6 x 10^{9}$ K (para a qual $kT$ é igual à energia de repouso de um elétron), elétrons e pósitrons (dos quais havia aproximadamente números iguais) aniquilaram-se rapidamente, produzindo fótons. Como resultado, o gás de fótons restante estava a uma temperatura $T_\gamma$ um pouco mais alta do que a temperatura $T_\nu$ dos neutrinos.
 
 Hoje, a temperatura dos fótons (a radiação cósmica de fundo em micro-ondas) é de cerca de 2,7 K. Encontre a temperatura atual dos neutrinos relíquia, assumindo que o processo de aniquilação foi reversível e que o Universo naquele tempo era espacialmente homogêneo. As densidades de energia dos gases relativísticos em questão são dadas por $u_\nu = cT^4$, $u_e = 2cT^4$ e $u_\gamma = \frac{8}{7}cT^4$, onde c é uma constante. (O fator 2 é responsável pela presença de elétrons e pósitrons e o fator de $\frac{8}{7}$ pela diferença entre as estatísticas de Bose e Fermi.)
 
@@ -202,8 +200,30 @@ S = S_e + S_\gamma = \frac{4}{3} \times 2cT^3V + \frac{4}{3} \times \frac{8}{7} 
  \]
 Como a razão dos volumes $\frac{V}{V'}$ se cancela, não importa exatamente quais dois instantes de tempo escolhemos antes e depois da aniquilação. Na verdade, poderíamos ter assumido que a aniquilação foi instantânea (e assim $V' = V$) e obtido o mesmo resultado, mas essa suposição não é totalmente realista. Assim, a razão $\frac{T'_\nu}{T'_\gamma}$' é igual a $\left( \frac{4}{11} \right)^{1/3}$ e a temperatura atual do neutrino é 
 \[
-T_v^\text{now} = \left( \frac{4}{11} \right)^{1/3} \times 2.7 \text{ K} \simeq 1.9 \text{ K}
+T_v^\text{agora} = \left( \frac{4}{11} \right)^{1/3} \times 2.7 \text{ K} \simeq 1.9 \text{ K}
 \]
-
+ \end{itemize}
 
 \end{document}
+
+\textbf{Problema 3.1} Encontre a entropia $S(E. V, N)$ de um gás ideal de $N$ partículas monoatômicas clássicas, com uma energia total fixa $E$, contido em uma caixa d-dimensional de volume $V$. Deduza a equação de estado deste gás, supondo que $N$ seja muito grande.
+
+\textbf{Solução} O gás em questão é um sistema fechado, termicamente isolado, descrito pelo conjunto micro-canônico. Sua entropia é definida, aproximadamente, por $S = k \ln(\Omega)$, onde $\Omega$ é o número de microestados correspondentes à energia fixa $E$. No entanto, as coordenadas $q_{i}$ e os momentos $p_{i}$, $ (i = 1.....dN) $ das partículas em um gás clássico podem assumir uma faixa contínua de valores, e algum cuidado é necessário para obter uma entropia bem definida. Para esse fim, definimos $\Omega(E, V, N; \Delta E)$ como o volume de uma casca fina no espaço de fase correspondente a uma faixa estreita de energias entre $E$ e $E + \Delta E$. A definição precisa de entropia é então
+\begin{equation}
+S(E,V,N, \Delta E) = k \ln\left( \frac{\Omega(E, V, N, \Delta E)}{h^{dN}N!} \right) .
+\end{equation}
+Nesta expressão, $h$ é uma constante arbitrária com as dimensões de (comprimento $\times$ momento), incluída para tornar o argumento do logaritmo adimensional. (Às vezes é conveniente identificar $h$ como a constante de Planck, para facilitar uma comparação entre gases clássicos e quânticos.) Como $\Delta E$ é pequeno, temos $\Omega(E, V, N; \Delta E) = \Delta E \sum (E, V, N)$ onde $\sum(E, V, N)$ é uma medida da área de uma superfície de energia constante. Consequentemente, tanto h quanto $\Delta E$ contribuem para $S$ apenas uma constante aditiva, que não tem significância física. O fator $N!$ impõe a condição (às vezes referida como 'contagem correta de Boltzmann') de que estados que diferem apenas por uma das $N!$ permutações das $N$ partículas idênticas devem ser contados como o mesmo estado.
+
+Para calcular $\Omega(E, V, N; \Delta E)$, expressamos como $\Omega = \Delta E \partial \nu/\partial E$, onde $ \nu$ é o volume do espaço de fase correspondente a energias menores ou iguais a $E$. O hamiltoniano de todo o sistema é
+\begin{equation}
+\mathcal{H} = \sum^{dN}_{i=1} \frac{p^{2}_{i}}{2m},
+\end{equation}
+para partículas com massa $m$, então obtemos
+\begin{equation}
+\nu(E, V ,N) = \int_{\mathcal{H} \leq E} \prod^{dN}_{i=1} dp_{i}dq_{i} = V^{N} \int_{\sum p^{2} < 2m E} d^{dN}p,
+\end{equation}
+onde o fator $V^{N}$ é o resultado da integração sobre as coordenadas. A integral do momento é precisamente o volume de uma esfera $dN$-dimensional com raio $R = \sqrt{2mE}$ dado no apêndice A. Portanto, temos
+\begin{equation}
+\nu(E, V, N) = \frac{V^{N}(2 \pi m e)^{dN/2}}{(dN/2)\Gamma(dN/2)}
+\end{equation}
+e podemos escrever a entropia como 
