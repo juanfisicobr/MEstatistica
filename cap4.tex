@@ -53,14 +53,14 @@ U &= - \left( \frac{\partial (\ln Z)}{\partial \beta} \right)_{z, V} = \frac{d}{
 \]
 Observamos a relação $U = \frac{d}{2} PV $, válida tanto para gases clássicos quanto quânticos quando as partículas têm apenas energia translacional. Além disso, no limite de altas temperaturas, com um número médio fixo de partículas por unidade de volume, devemos ter $z \frac{df}{dz} \rightarrow 0 $. Como $df/dz > 0$, isso implica que $z \rightarrow 0$ e então descobrimos que $f(z) \rightarrow 0 $ também. Temos então $f(z) = \Gamma \left( \frac{d}{2} \right) z \\$ e recuperamos a equação de estado $PV = \langle N \rangle kT$ de um gás ideal clássico. 
 
-(b) Obtenha a probabilidade $P_i(n_i, T, μ)$ de encontrar ni partículas no i-ésimo estado à temperatura T. Calcule a flutuação quadrática média $(\Delta n_i)^2 \equiv \langle (n_i - \langle n_i \rangle)^2 \rangle$ em termos de temperatura.
+(b) Obtenha a probabilidade $P_i(n_i, T, \mu)$ de encontrar ni partículas no $i$-ésimo estado à temperatura $T$. Calcule a flutuação quadrática média $(\Delta n_i)^2 \equiv \langle (n_i - \langle n_i \rangle)^2 \rangle$ em termos de temperatura.
 A expressão dada em (a) para $Z$ é um produto de probabilidades independentes não normalizadas para todos os números de ocupação, então é fácil escrever a distribuição de probabilidade normalizada para um deles:
 \[
-P(n_i, T, \mu) = \frac{e^{-\beta (\epsilon_i - \mu) n_i}}{\sum_{n_i=0}^M e^{-\beta (\epsilon_i - \mu) n_i}} = \frac{e^{-\beta (\epsilon_i - \mu) n_i}}{L(q_i)}
+\mathcal{P}(n_i, T, \mu) = \frac{e^{-\beta (\epsilon_i - \mu) n_i}}{\sum_{n_i=0}^M e^{-\beta (\epsilon_i - \mu) n_i}} = \frac{e^{-\beta (\epsilon_i - \mu) n_i}}{L(q_i)}
 \]
 onde $L(q_i) = \frac{(1 - q_i^{M+1})}{(1 - q_i)}$. Evidentemente, $L(q_i) $ desempenha o papel de uma função de partição para a distribuição dos números de ocupação de um estado de partícula única. A variância desta distribuição é
 \[
-(\Delta n_i)^2 = \sum_{n_i = 0}^M n_i^2 P(n_i, T, \mu) - \left( \sum_{n_i = 0}^M n_i P(n_i, T, \mu) \right)^2
+(\Delta n_i)^2 = \sum_{n_i = 0}^M n_i^2 \mathcal{P}(n_i, T, \mu) - \left( \sum_{n_i = 0}^M n_i P(n_i, T, \mu) \right)^2
 \]
 Isso pode ser expresso como
 \[
@@ -73,12 +73,83 @@ onde a linha denota $d/dq_i$. Como será visto em (d), os casos fisicamente inte
  
 (c) Obtenha o número médio de ocupação$ \langle n(\varepsilon) \rangle$ de um nível de energia $\varepsilon$ e avalie-o em temperatura zero.
 
+O número de ocupação $\langle n(\varepsilon) \rangle$ é o número médio de partículas com energia $\varepsilon$. Claro, isso será zero a menos que $\varepsilon$ seja um dos autovalores $\varepsilon_i$, caso em que é igual a $g_s \langle n_i \rangle$, que avaliamos como 
+\[
+\langle n(\varepsilon) \rangle = g_s \sum_{n=0}^M n \mathcal{P}(n, T, \mu) = g_s q \frac{L'(q)}{L(q)} = \frac{g_s}{e^{\beta(\epsilon - \mu)} - 1} - \frac{g_s(M+1)}{e^{(M+1)\beta(\epsilon - \mu)} - 1}
+\]
+Ao encontrar o limite de temperatura zero desse número de ocupação, devemos primeiro considerar que, para manter um número médio fixo de partículas por unidade de volume $\langle N \rangle/V$, o potencial químico $\mu$ deve variar adequadamente com a temperatura. A partir da expressão encontrada em (a) para $\langle N \rangle$, vemos que isso significa que $\mathcal{N}(z) \propto (kT)^{-d/2}$, onde $ \mathcal{N}(z) = z \frac{d[f_M(z)]}{dz}$, e, portanto, $z$ deve se tornar grande quando $T \rightarrow 0$. Para ver o quão grande $z$ deve ser, primeiro reescrevemos a variável de integração $x$ como $x = (\ln z) y$, o que resulta em 
+\[
+\mathcal{N}(z) = (\ln z)^{\frac{d}{2}} \int_0^\infty dy \, y^{\frac{d}{2} - 1} \left( \frac{1}{z^{y-1} - 1} - \frac{M+1}{z^{(M+1)} e^{(y-1)} - 1} \right)
+\]
+Dentro da integral restante, podemos tomar o limite $z \rightarrow \infty$ observando que ambos $z^{(y-1)}$ e $z^{(M+1)(y-1)}$ tendem a 0 se $y < 1$ ou a $\infty$ se $y > 1$. Neste limite, portanto, temos 
+\[
+\mathcal{N}(z) \cong (\ln z)^{d/2} \int_0^1 dy \, y^{d/2 - 1} M = \frac{2M}{d} (\ln z)^{d/2}
+\]
+Portanto, descobrimos que $ \ln z = \mu/kT \propto 1/kT$, então $\mu$ se aproxima de uma constante positiva $\mu_0$. A integral para $\mathcal{N}(z)$ envolve, é claro, o número de ocupação $\langle n(\varepsilon) \rangle$ em uma notação diferente, então, pelo mesmo argumento, descobrimos que $\langle n(\varepsilon) \rangle \rightarrow  g_s M\theta  (\varepsilon - \mu_0)$. Como seria de esperar, estados de baixa energia suficientes são totalmente ocupados para acomodar o número de partículas no gás, enquanto estados de alta energia estão todos desocupados. Este é um 'mar de Fermi' generalizado. 
+
 (d) Como, se possível, podemos recuperar deste modelo a termodinâmica de partículas que obedecem às estatísticas de Bose-Einstein, Fermi-Dirac e Maxwell-Boltzmann?
 
-\textbf{• Problema 4.4} Encontre expressões para a pressão $P$, densidade de energia $u$, densidade de entropia $s$ e calor específico $C_v$ por unidade de volume da radiação de corpo negro em uma cavidade d-dimensional à temperatura $T$. Avalie essas quantidades explicitamente para d = 3. 
+Este modelo reproduz um gás de Fermi-Dirac se definirmos o spin s para um valor semi-ímpar e tomarmos $M = 1$. Em particular, o número médio de ocupação se torna $\langle n(\varepsilon) \rangle_{FE} = g_{s} /(e^{\beta (\varepsilon - \mu)} - 1)$. Para recuperar um gás de Bose-Einstein, devemos definir s para um valor inteiro e tomar $M \rightarrow \infty$. Para bósons, $\mu$ é sempre menor ou igual à energia mínima de partícula única, $\mu \leq \epsilon_{min}$, zero em nosso caso. Portanto, $\mu$ é sempre negativo, então $q = e^{\beta (\epsilon - \mu)} > 1 \text{ e } \langle n(\epsilon) \rangle_{BE} = g_{s} /(e^{\beta (\epsilon - \mu)} - 1)$. 
 
-\textbf{• Problema 4.6} Estados eletrônicos próximos ao topo de uma banda de energia em um metal cúbico simples podem ser tratados como estados de partículas livres com energias dadas por uma relação de dispersão da forma $\varepsilon (k) = \varepsilon_0 - A |k|^2$, onde $A$ é uma constante positiva. Encontre a densidade de estados $g(\varepsilon)$ para energias logo abaixo de $\varepsilon_0 $ em um cristal cúbico de lado $L$. As funções de onda podem ser consideradas como nulas nas bordas do cristal ou para satisfazer condições de contorno periódicas. Como $g(\varepsilon)$  depende da escolha das condições de contorno? 
+Nesse caso, $\mu \rightarrow \infty$ quando $T \rightarrow 0$ e $\mathcal{N}(z) $ se torna grande devido à singularidade no integrando em $y = 1$ quando $z = 1$. Os estados fundamentais então se tornam macroscopicamente ocupados, que é o fenômeno da condensação de Bose-Einstein. Em ambos os casos, a especificação dos estados descritos na questão está de acordo com as regras da mecânica quântica. Dado um conjunto de números de ocupação, podemos formar um produto de funções de onda de partícula única $\psi(1) \psi(2) \dots \psi(n_1) \psi_2(n_1 + 1) \dots$, no qual $\psi(1)$ aparece $n_1$ vezes, $ \psi(2) $ aparece $n_2$ vezes e assim por diante. Para quaisquer valores de $n_i$, há exatamente uma função de onda totalmente simétrica que pode ser formada permutando os rótulos das partículas neste produto, e isso resulta em um estado bosônico. Por outro lado, há exatamente uma função de onda totalmente anti-simétrica que pode ser formada se todos os $n_i$ forem zero ou um, mas nenhuma se algum $n_i$ for maior que um, então isso produz um estado fermiônico, consistente com o princípio de exclusão de Pauli. 
+Não podemos recuperar um gás de Maxwell-Boltzmann, porque a contagem de estados funciona de maneira diferente neste caso. Para partículas distinguíveis, a função de onda produto simples fornece um estado válido e, para um total de $N = \sum_i n_i$ partículas, existem $\frac{N!}{(n_1! n_2! \dots)}$ permutações de rótulos de partículas que fornecem estados distintos. Considere, para simplificar, a função de partição canônica para partículas distinguíveis de spin-0 
+\[
+Z_{\text{dist}}(N, T) = \sum_{\{n_i\}} \frac{N!}{n_1! n_2! \dots} \exp \left( -\beta \sum_i \epsilon_i n_i \right) 
+= \left( \sum_i e^{-\beta \epsilon_i} \right)^N
+\]
+Para estatísticas de Maxwell-Boltzmann, definimos $Z_{\text{MB}}(N, T) = Z_{\text{dist}}(N, T)/N! $ Z. De um ponto de vista da mecânica quântica, isso parece atribuir uma degenerescência fracionária peculiar g$ = 1/(n_1! n_2! \dots) < 1$ a cada estado. No entanto, a expressão final para $Z_{\text{dist}}(N, T)$ é, na verdade, um produto de $N$ funções de partição de partícula única, como encontramos para um gás clássico. As estatísticas de Maxwell-Boltzmann, portanto, tratam essas $N$ partículas como indistinguíveis em um sentido clássico, já que dividir por $N!$ produz a 'contagem de Boltzmann' correta dos estados de um gás clássico. Claramente, no entanto, o modelo estudado aqui não pode reproduzir este método de contagem. 
+
+\textbf{• Problema 4.4} Encontre expressões para a pressão $P$, densidade de energia $u$, densidade de entropia $s$ e calor específico $C_v$ por unidade de volume da radiação de corpo negro em uma cavidade d-dimensional à temperatura $T$. Avalie essas quantidades explicitamente para d = 3. 
+\textbf{Resposta:} Todos os resultados desejados podem ser obtidos como derivadas da função de partição grande canônica que, para fótons, é:
+\[
+Z(T, V) = \sum_{\{n_i\}} e^{-\beta \varepsilon_i n_i} = \prod_i \sum_{n_i=0}^\infty e^{-\beta \varepsilon_i n_i} = \prod_i (1 - e^{-\beta \varepsilon_i})^{-1}
+\]
+
+onde \textit{i} rotula os estados de partícula única de energia $\varepsilon_i$. Fótons têm potencial químico zero porque o número de fótons na cavidade não é conservado e não pode aparecer na densidade de probabilidade de equilíbrio. Uma vez que os níveis de energia dos fótons em uma cavidade de tamanho macroscópico são muito próximos, podemos escrever:
+\[
+\ln[Z(T, V)] = - \sum_i \ln (1 - e^{-\beta \varepsilon_i}) = - \int_0^\infty d\varepsilon \, g(\varepsilon) \ln (1 - e^{-\beta \varepsilon})
+\]
+
+onde $g(\varepsilon)$ é o número de estados por intervalo de unidade de energia. Assumindo que as funções de onda do fóton desaparecem nas paredes de uma cavidade hipercúbica de lado $L$, os momentos permitidos são $\boldsymbol{p} = (\pi \hbar/L)\boldsymbol{n}$, onde $\boldsymbol{n}$ é um vetor de inteiros positivos.
+Uma vez que a energia de um fóton é $|\boldsymbol{p}|c$, o número de estados com energia menor ou igual a $\varepsilon$ é $(d-1)(1/2^d)$ multiplicado pelo volume de uma esfera $d$-dimensional de raio$ L \varepsilon/\pi \hbar c$, onde o fator $d-1$ leva em consideração os estados de polarização. Assim, temos
+\[
+g(\varepsilon) = \frac{d}{d\varepsilon} \left[ \frac{d-1}{2^{d-1}} \frac{\pi^{d/2}}{\Gamma(d/2)} \left( \frac{L \varepsilon}{\pi \hbar c} \right)^d \right] 
+= \frac{(d-1) V \varepsilon^{d-1}}{2^{d-1} \Gamma(d/2) (\hbar c \sqrt{\pi})^d} \equiv a_d V \varepsilon^{d-1} 1
+\]
+e
+\[
+\ln[Z(T, V)] = -a_d V \int_0^\infty d\varepsilon \, \varepsilon^{d-1} \ln(1 - e^{-\beta \varepsilon}) = a_d V I_d (kT)^d
+\]
+onde
+\[
+I_d = \int_0^\infty dx \, x^{d-1} \ln(1 - e^{-x})
+\]
+As quantidades termodinâmicas são
+\[
+\begin{aligned}
+P &= \left( \frac{kT}{V} \right) \ln Z = a_d I_d (kT)^{d+1} \\
+u &= \frac{1}{V} \frac{\partial (\ln Z)}{\partial \beta} = d a_d I_d (kT)^{d+1} \\
+s &= \frac{1}{V} \left( \frac{\partial (PV)}{\partial T} \right)_V = (d+1) a_d I_d k (kT)^d \\
+C_V &= \left( \frac{\partial u}{\partial T} \right)_V = d(d+1) a_d I_d k (kT)^d = T \left( \frac{\partial s}{\partial T} \right)_V.
+\end{aligned}
+\]
+ em três dimensões temos $I_3 = \frac{\pi^4}{45} \text{ e } a_3 = \frac{1}{\pi^2 (\hbar c)^3}$ assim
+ \[
+ P = \frac{\pi^2}{45 (\hbar c)^3} (kT)^4 = \frac{1}{3} u, \quad S = \frac{4 \pi^2}{45} \left( \frac{kT}{\hbar c} \right)^3 k = \frac{4}{3} C_V
+ \]
+ Esses resultados (que às vezes são expressos em termos da constante de Stefan-Boltzmann $\sigma = \frac{\pi^2 k^4}{60 \hbar^3 c^2} \approx 5.67 \times 10^{-8} \, \text{W m}^{-2} \text{K}^{-4}$ são úteis, por exemplo, no estudo de modelos cosmológicos onde grande parte do conteúdo de matéria do Universo está na forma de fótons e outras partículas altamente relativísticas. 
  
+\textbf{• Problema 4.6} Estados eletrônicos próximos ao topo de uma banda de energia em um metal cúbico simples podem ser tratados como estados de partículas livres com energias dadas por uma relação de dispersão da forma $\varepsilon (k) = \varepsilon_0 - A |k|^2$, onde $A$ é uma constante positiva. Encontre a densidade de estados $g(\varepsilon)$ para energias logo abaixo de $\varepsilon_0 $ em um cristal cúbico de lado $L$. As funções de onda podem ser consideradas como nulas nas bordas do cristal ou para satisfazer condições de contorno periódicas. Como $g(\varepsilon)$  depende da escolha das condições de contorno? 
+
+ \textbf{Resposta:} A densidade de estados $g(\varepsilon)$ é definida de modo que $g(\varepsilon)d\varepsilon$ é o número de estados com energia entre $\varepsilon$ e $\varepsilon + d\varepsilon$. Se tomarmos funções de onda que se anularem nos limites de um cubo de lado $L$, então os vetores de onda são restritos à forma $k = (\pi/L)n$, onde $n$ é um vetor de inteiros positivos. Os estados com energia entre $\varepsilon$ e $\varepsilon_0$ são aqueles para os quais $|n|^2 = L^2 |k|^2 / \pi^2 \leq L^2 (\varepsilon_0 - \varepsilon) / \pi^2 \hbar^2 \equiv R^2(\varepsilon)$. O número de vetores $n$ que satisfazem essa condição é igual ao volume de uma esfera de raio $R$ se inteiros positivos e negativos forem incluídos, e é uma fração $1/2^3$ desse número se apenas inteiros positivos forem incluídos. Incluindo também um fator de 2 para o número de polarizações de spin de um elétron, descobrimos que o número de estados com energia entre $\varepsilon$ e $\varepsilon_0$ é 
+ \[
+\mathcal{N}(\varepsilon) = 2 \times \frac{1}{8} \times \frac{4\pi}{3} R^3(\varepsilon) = \frac{L^3}{3 \pi^2 A^{3/2}} (\varepsilon_0 - \varepsilon)^{3/2}
+\]
+Usando condições de contorno periódicas, os vetores de onda permitidos são $\boldsymbol{k} = (2\pi/L)\boldsymbol{n}$, mas tanto inteiros positivos quanto negativos são permitidos. Neste caso, consideramos o volume total de uma esfera de raio $R/2$, o que dá o mesmo resultado. O número $\mathcal{N}(\varepsilon + d \varepsilon)$ de estados com energia entre $\varepsilon + d\varepsilon$ e $\varepsilon_0$ é, obviamente, para $d\varepsilon > 0$, menor que $\mathcal{N}(\varepsilon)$ por $g(\varepsilon)d\varepsilon$; então descobrimos que 
+\[
+g(\varepsilon) = - \frac{\partial \mathcal{N}(\varepsilon)}{\partial \varepsilon} = \frac{L^3}{2 \pi^2 \hbar^3/2} (\varepsilon_0 - \varepsilon)^{1/2}
+\]
+Próximo à parte inferior de uma banda, onde a relação de dispersão é, digamos, da forma $\varepsilon  = \varepsilon_0 + B|k|^2$, um cálculo similar fornece $g(\varepsilon)=\frac{L^3}{2 \pi^2 B^{3/2}} (\varepsilon - \varepsilon_0)^{3/2}$ . 
 
  
 \end{document}
