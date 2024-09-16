@@ -2,6 +2,7 @@
 \usepackage[portuguese]{babel}
 \usepackage{amsmath}
 \usepackage{graphicx}
+\usepackage{physics}
 \newcommand{\numpy}{{\tt numpy}}   
 
 \topmargin -.5in
@@ -155,15 +156,165 @@ De fato, é assim: como a entropia é extensiva, obtemos uma entropia total $S =
  
 \textbf{• Problema 3.5} Para uma coleção de $N$ osciladores harmônicos quânticos tridimensionais de frequência $\omega$ e energia total $E$, calcule a entropia $S$ e a temperatura $T$.
 
-\textbf{• Problema 3.6} Usando o ensemble microcanônico, calcule a energia livre de Helmholtz $F(T, N)$ como uma função da temperatura para um sistema de $N$ partículas idênticas, mas distinguíveis, cada uma das quais possui dois níveis de energia. Explore os limites $T \rightarrow 0$ e $T \rightarrow \infty$ da energia, da entropia e dos números de ocupação.
+\textbf{Solução}
+
+Para resolver este problema usando o conjunto micro-canônico, temos que contar todos os estados possíveis de todo o sistema com sua energia total fixa. A energia do sistema é
+\begin{equation}
+E = \sum^{3N}_{i=1} E_{l} = \sum^{3N}_{i=1} \left(n_{l}+\frac{1}{2} \right) \hbar \omega
+\end{equation}
+onde n, é o número de quanta de energia no oscilador i-ésimo $(n_{i} = 0,1, ... ,\infty)$. Podemos escrever isso como
+
+\begin{equation}
+\sum^{3N}_{i=1} n_{i} = \frac{E}{\hbar \omega} - \frac{3N}{2} \equiv M
+\end{equation}
+
+O número de estados possíveis é o número de conjuntos de inteiros não negativos $\{n_{i} \}$ que somam ate $M$. Este problema combinatório pode ser resolvido considerando os osciladores $3N$ como caixas, nas quais colocamos $M$ bolas indistinguíveis, representando os quanta de energia. Para contar o número de maneiras pelas quais isso pode ser feito, tratamos as caixas (osciladores) como distinguíveis e as imaginamos dispostas em uma fileira e separadas por paredes $3N — 1$, conforme ilustrado na figura 3.1. Um dado estado das bolas nas caixas pode ser visto como uma sequência de bolas e paredes. Por exemplo, a sequência $\{ bbwwbbbw... \}$ mostrada na figura corresponde a duas bolas na caixa 1, nenhuma bola na caixa 2, três bolas na caixa 3, e assim por diante. Se as bolas e as paredes fossem todas distinguíveis, o número total de arranjos desses objetos$ M + 3/V — 1$ seria $(M + 3N — 1)!$. Como as bolas são indistinguíveis umas das outras, e também as paredes, dividimos pelas permutações $M!$ das bolas e pelas permutações $(3N — 1)!$ das paredes para obter o número de arranjos distintos. Portanto, o número de estados possíveis distintos é
+
+\begin{equation}
+    \Omega(E,N) = \frac{(M+3N-1)!}{M!(3N-1)!}  ,
+\end{equation}
+
+substituindo  $M$
+
+\begin{equation}
+    \Omega(E,N) = \frac{(\frac{E}{\hbar \omega} + \frac{3N}{2-1})!}{\frac{E}{\hbar \omega} + \frac{3N}{2}!(3N-1)!}.
+\end{equation}
+
+A entropia é $S(E,N) = k ln[\Omega(E. N)]$. No limite termodinâmico, que $E,N \to \infty \quad \text{com} \quad \frac{E}{N}$ fixo, usamos a aproximação de Stirling para obter
+
+\begin{equation}
+    S(E, N) \approx NK \left[ \left(\frac{E}{N \hbar \omega} + \frac{3}{2} \right) ln\left(\frac{E}{N \hbar \omega} + \frac{3}{2} \right) - \left(\frac{E}{N \hbar \omega} - \frac{3}{2} \right) ln\left(\frac{E}{N \hbar \omega} - \frac{3}{2} \right)\right]
+\end{equation}
+Note que, como no problema 3.4, a entropia é extensa no limite termodinâmico, desde que os osciladores sejam distinguíveis. A temperatura é agora dada por
+\begin{equation}
+    \frac{1}{T} = \left(\frac{\partial S}{\partial E}\right)_{N} = \frac{k}{\hbar \omega} ln\left(\frac{E/N \hbar \omega + \frac{3}{2}}{E/N \hbar \omega - \frac{3}{2}} \right)
+\end{equation}
+Isso pode ser facilmente resolvido para $E$ em termos de $T$ e $N$, e obtemos
+\begin{equation}
+    E(T, N) = \frac{3}{2} N \hbar \omega coth\left(\frac{\hbar \omega}{2 k T}\right),
+\end{equation}
+que é o resultado que seria obtido do conjunto canônico. Em altas temperaturas, $kT \ll \hbar \omega$ ou, equivalentemente, quando $E \ll 3N\hbar \omega$. recuperamos o resultado clássico do problema 3.4, a saber, $E \approx 3NkT$.
+
+\textbf{• Problema 3.6} Usando o ensemble micro-canônico, calcule a energia livre de Helmholtz $F(T, N)$ como uma função da temperatura para um sistema de $N$ partículas idênticas, mas distinguíveis, cada uma das quais possui dois níveis de energia. Explore os limites $T \rightarrow 0$ e $T \rightarrow \infty$ da energia, da entropia e dos números de ocupação.
 
 Mostre que a entropia máxima (mínima) corresponde à informação mínima (máxima) sobre o sistema. Quantos bits de informação são perdidos se o sistema evolui de um estado inicial de temperatura zero para um estado final de temperatura infinita? Qual é a temperatura mais alta na qual este sistema pode existir?
+
+\textbf{Solução}
+
+Vamos supor que cada partícula pode ter uma energia $\pm \epsilon$, e que partículas $n_{+}$ têm energia $+\epsilon$. Obviamente, o número de partículas com energia $-\epsilon$ é $n_{-} = N - n_{+}$ e, se a energia total é $E$, então $n_{\pm} = (N \pm E/\epsilon)/2$. O número de microestados com energia $E$ é apenas o número de maneiras pelas quais $n_{+}$ (ou $n_{-}$) partículas podem ser escolhidas de N, temos que
+\begin{equation}
+\Omega(E, N) =  \begin{bmatrix}
+N   \\
+n_{+}  \end{bmatrix}  = \frac{N!}{n_{+}!(N - n_{+})!}
+\end{equation}
+Como de costume, obtemos uma forma compacta para a entropia no limite termodinâmico. Neste caso, tomamos $N$, $n_{+}$ e $n_{-}$ todos como grandes. Usando a aproximação de Stirling e a definição
+\begin{equation}
+x = \frac{n_{+}}{N} = \frac{1}{2}\left(1 + \frac{E}{N \epsilon} \right)
+\end{equation}
+nós descobrimos que
+\begin{equation}
+S(E,N) = k ln \Omega \approx - Nk\left[xln + (1-x)ln(1-x) \right]
+\end{equation}
+e note que isso é extenso, desde que as partículas sejam distinguíveis (cf. problemas 3.4 e 3.5). A temperatura é dada por
+\begin{equation}
+\frac{1}{T} = \left(\frac{\partial S}{\partial E} \right)_{N} = \frac{1}{2 N \epsilon} \left(\frac{\partial S}{\partial X} \right)_{N} = \frac{k}{2 \epsilon} ln \left( \frac{1-x}{x}\right)
+\end{equation}
+e essa relação pode ser invertida para produzir
+\begin{equation}
+    x = (e^{\frac{2 \epsilon}{kT} + 1}) ] \qquad E(T, N) = -N \epsilon tanh\left(\frac{\epsilon}{kT} \right)
+\end{equation}
+Agora é uma questão simples calcular a energia livre de Helmholtz;
+\begin{equation}
+    F(T, N) = E(T ,N) - TS(T, N) = -N\epsilon -NkTln\left(1+e^{\frac{2 \epsilon}{kT} + 1}\right)
+\end{equation}
+É claro que esse resultado também seria obtido a partir do conjunto canônico:
+\begin{equation}
+    e^{-\frac{F}{kT}} = \prod_{i=1}^{N} \sum_{E_{i} = \pm \epsilon} e^{\frac{-E_{i}}{kT}} = e^{\frac{N \epsilon}{kT}} \left(1 + e^{\frac{-2\epsilon}{kT}} \right)^{N}
+\end{equation}
+No limite $T \to 0$, encontramos que $x \to 0$, então $n_{+}(0, N) = 0$, $ n_{-}(0, N) = N$, $E(0, N) = -N \epsilon$ e $S(0, N) = 0$. Claramente, todas as partículas têm sua menor energia e a entropia desaparece porque há apenas um estado com essa energia mínima. Como $x$ deve estar entre zero e um, $S$ não pode ser negativo, então $S = 0$ é seu valor mínimo. Precisamos de $N$ bits de informação para especificar esse estado.
+No limite $T \to \infty$, obtemos $x \to \frac{1}{2}$, então $n_{+}(\infty,  N) = n_{-} = (\infty, N) = \frac{N}{2}$. $E(\infty, N) = 0$ e $S(\infty, N) = N k ln2$. Intuitivamente, é bastante claro que esse estado, no qual os níveis de energia são igualmente ocupados, tem o maior grau possível de desordem. De fato, é fácil verificar que $S$ atinge seu valor máximo quando $x = \frac{1}{2}$ Como cada partícula tem probabilidades iguais de estar em qualquer um dos seus dois níveis de energia, o conteúdo de informação desse estado é zero. Consequentemente, A' bits de informação são perdidos se o sistema for aquecido de $T = 0$ a $T = \infty$. Isso pode ser confirmado usando a relação entre informação e entropia:
+\begin{equation}
+\Delta I = \frac{S(0, N) - S(\infty, N)}{k ln 2} = N.
+\end{equation}
+A energia máxima que o sistema pode conter é, é claro,$ E_{max} = +N\epsilon$, que corresponde a , $x = 1$ ou a $T = 0$. Conforme discutido no problema 2.2, a faixa de temperaturas disponíveis para o sistema é melhor compreendida em termos do parâmetro $\beta = 1/kT$. A menor temperatura possível $T=0$ corresponde ao maior valor possível de $\beta$. ou seja, $\beta = \infty$. onde $E = - N \epsilon$ e $x = 0$. À medida que $E$ é aumentado, $x$ aumenta suavemente até zero. À medida que $E$ se aproxima de $E_{max}$, $x$ se aproxima de seu valor máximo de unidade, enquanto $\beta$ se aproxima de seu valor mínimo de $-\infty$. Isso corresponde a $T$ aumentando em direção a zero por meio de valores negativos.
 
 \textbf{• Problema 3.9} Considere um sistema de $N$ osciladores harmônicos quântico-mecânicos que não interagem em três dimensões. Calcule a função de partição canônica do sistema $Z(T, N)$. Verifique se a mesma resposta é obtida considerando o sistema como consistindo de:
 
 (a) $3N$ osciladores unidimensionais ou
 
 (b) $N$ osciladores tridimensionais.
+
+\textbf{Solução:}\\
+
+O hamiltoniano para um oscilador de três dimensões é simplesmente a soma dos hamiltonianos para três osciladores de uma dimensão, então nós estamos livres em considerar o sistema como uma coleção de $3N$-osciladores de uma dimensão ou de $N$ osciladores de três dimensões. Em ambos os casos, já que os osciladores não interagem, a função de partição $Z(T,N)$ é o produto de funções de partição parar osciladores individuais:
+
+\begin{equation}
+Z(T,N) = \prod_{i=1}^{M} Z_i(T) = \prod_{i=1}^{M} \left(\sum_{n_i = 0}^\infty g(n_i) e^{-\beta E_i(n_i)}\right)
+\end{equation}
+
+Onde $M$ é $3N$ ou $N$ e, para o i-ésimo oscilador, $g(n_i)$ é a degenerescência do nível de energia indicado por $n_i$.
+
+\mathbf{a)} $3N$ osciladores de uma dimensão:\\
+
+Para um oscilador de uma dimensão de frequência angular $\omega$, os níveis de energia são $E_i(n_i) = \left(n_i +\frac{1}{2}\right)\hbar\omega$ e são não degenerados, então $g(n_i) = 1$. Logo,
+
+\begin{equation}
+    Z(T,N) = \prod_{i=1}^{3N} \left(\sum_{n_i =0}^{\infty} e^{-\beta\hbar\omega(n_i+\frac{1}{2})}\right) = \left(e^{-\frac{\beta\hbar\omega}{2}}\sum_{n_i=0}^{\infty} e^{-\beta\hbar\omega n} \right)^{3N} .
+\end{equation}
+
+Usando a expansão binomial,
+
+\begin{equation}
+    L(q) \equiv \sum_{n=0}^{\infty} = \frac{1}{1-q}
+\end{equation}
+
+ao qual é válido para $q<1$ e (com $q=e^{\beta\hbar\omega}$) nós obtemos a resposta
+
+\begin{equation}
+Z(T,N) = \left(\frac{e^{-\frac{\beta\hbar\omega}{2}}}{1-e^{-\beta\hbar\omega}}\right)^{3N}.
+\end{equation}
+
+\textbf{b)} $N$ osciladores de 3 dimensões:\\
+
+Os níveis de energia de um oscilador de três dimensões são $E_i(n_i) = (n_i + \frac{3}{2})\hbar\omega$. A degenerescência de um destes níveis é o número de conjuntos de três inteiros não negativos que adicionam para $n_i$. Isso pode ser encontrado, por exemplo, pelo método sugerido na solução para o problema 3.5 e é dado por 
+
+\begin{equation}
+    g(n_i) = \frac{(n_i + 2)!}{2!n!} = \frac{1}{2}n_i^2 + \frac{3}{2} n_i + 1.
+\end{equation}
+
+Logo,
+
+\begin{equation}
+    Z_i = e^{-\frac{\beta\hbar\omega}{2}}\sum_{n_i=0}^{\infty}\left(\frac{1}{2}n_i^2+\frac{3}{2}n_i+1\right)e^{-\beta\hbar\omega n}.
+\end{equation}
+
+As somas podem ser resolvidas usando a formula anterior, junto com:
+
+\begin{align}
+    \sum_{n=0}^\infty n q^n &= q \dv{q}[L(q)]  =\frac{q}{(1-q)^2}\\
+    \sum_{n=0}^\infty n^2q^n &= \left(q \dv{q}\right)^2[L(q)] = \frac{q(1+q)}{(1-q)^3}.
+\end{align}
+
+A função de partição total é então encontrado
+
+\begin{equation}
+    Z(T,N) = \left[e^{-\frac{3\beta\hbar\omega}{2}}\left(\frac{1}{2}\frac{q(1+q)}{(1-q)^3} + \frac{3}{2}\frac{q}{(1-q)^2}+\frac{1}{1-q}\right)\right].
+\end{equation}
+
+Manipulando,
+
+\begin{align}
+    \frac{1}{2}\frac{q(1+q)}{(1-q)^3} + \frac{3}{2}\frac{q}{(1-q)^2}+\frac{1}{1-q} &= \frac{1}{2}\frac{q(1+q)}{(1-q)^3}+\frac{q(1-q)}{(1-q)^3} + \frac{2}{2}\frac{(1-q)^2}{(1-q)^3}\\
+    &= \frac{1}{2(1-q)^3}\left(q(1+q) + 3q(1-q) + 2(1-q)^2\right)\\
+    &=\frac{1}{2(1-q)^3}(2)\\
+    &=\left(\frac{1}{1-q}\right)^3.
+\end{align}
+
+Retornando para a função de partição, temos
+
+\begin{equation}
+    Z(T,N) = \left(\frac{e^{-\frac{\beta\hbar\omega}{2}}}{1-e^{-\beta\hbar\omega}}\right)^{3N}.
+\end{equation}
 
 \textbf{• Problema 3.18} A uma dada temperatura, a diferença entre os calores específicos de um gás ideal diatômico e um gás monoatômico é devida em parte à energia rotacional das moléculas diatômicas. Um rotor quântico rígido possui níveis de energia $E_\text{rot}(l)$ com degenerescência $g(l)$ dada por 
 \[
@@ -205,4 +356,30 @@ Z_{rot} &= \int^{\infty}_{0} f(l)dl + \frac{1}{2}f(0) - \frac{1}{12}f^{\prime}(0
 &= \frac{T}{\theta} + \frac{1}{3} + \frac{1}{15}\frac{\theta}{T} + O\left[\left(\frac{\theta}{T} \right)^{2} \right].
 \end{align}
 A energia interna e o calor específico são então dados por
+\begin{align}
+    U &= -N\left(\frac{\partial(lnZ_{trans})}{\partial \beta} +\frac{\partial(lnZ_{rot})}{\partial \beta} \right) \\
+    &= \frac{5}{2}NKT \biggl\{ 1 - \frac{2 \theta}{15 T} - \frac{2}{225}\left( \frac{\theta}{T}\right)^{2} + O \left[\left(\frac{\theta}{T} \right)^{3} \right] \biggl\}\\
+    C_{V} &= \left( \frac{\partial U}{\partial T} \right)_{V} = \frac{5}{2}NK \biggl\{ 1 +  \frac{2}{225}\left( \frac{\theta}{T}\right)^{2} + O \left[\left(\frac{\theta}{T} \right)^{3} \right] \biggl\}
+\end{align}
+Claro, o limite de alta temperatura $C_{V} \approx \frac{5NK}{2}$ concorda com o teorema clássico da equipartição. Em baixas temperaturas $T « \theta$, termos sucessivos da soma sobre $l$ diminuem rapidamente, e precisamos manter apenas alguns deles. Mantendo apenas os dois primeiros termos, obtemos
+\begin{equation}
+    Z_{rot} = 1 + 3e^{-2\theta/T}+ ( . . . )
+\end{equation}
+e
+\begin{equation}
+    C_{V} = \frac{3}{2}NK + 12NK \left(\frac{\theta}{T}\right)\left(e^{-2\theta/T}+ ( . . . )\right)
+\end{equation}
+O segundo termo é a contribuição rotacional. Ela desaparece quando $T \to 0$, de acordo com a terceira lei da termodinâmica, e este é um efeito mecânico-quântico (por exemplo, problema 3.11). O primeiro termo é devido ao movimento translacional e concorda com o teorema da equipartição clássica quando apenas os graus de liberdade translacionais são levados em conta. Ela não desaparece em $T = 0$, embora o resultado totalmente mecânico-quântico necessário em temperaturas extremamente (e impraticavelmente) baixas desapareça (problema 3.11).
+Leitores que não estão familiarizados com a fórmula de Euler-Maclaurin podem gostar de obtê-la por si mesmos. O seguinte sugere um método simples (que, no entanto, não prova que a série realmente converge para o resultado desejado). Primeiro, expresse a integral como
+\begin{align}
+\int^{\infty}_{0} f(x) dx &= \sum_{k=o}^{\infty} \int_{0}^{1} f(k+x)dx \\
+&= \sum_{k=o}^{\infty} \int_{0}^{1} \left(f(k) + x{f^{\prime}}(k)+\frac{x^{2}{f^{\prime \prime}}(k)}{2} + (...)\right)dx \\
+&= \sum_{k=o}^{\infty} \left(f(k) + 
+\frac{f^{\prime}(k)}{2}+\frac{{f^{\prime \prime}}(k)}{6} + (...) \right)
+\end{align}
+Assumindo que
+\begin{equation}
+    \sum_{k=o}^{\infty} = \int_{0}^{\infty} f(x)dx + a_{0}f(0) + a_{1}{f^{\prime}}(0) + a_{2}{f^{\prime \prime}}(0) + (. . .)
+\end{equation}
+e que as somas de ${f^{\prime}}(k)$, ${f^{\prime \prime}}(k)$, etc, podem ser expressas da mesma forma, com os mesmos coeficientes $a_{i}$. Substitua essas expressões no primeiro resultado. A integral de $f(x)$ cancela. Assumindo que $f(\infty) = {f^{\prime}}(\infty) = (• • •) = 0$, a integral de ${f^{\prime}}(x)$ é $-f(0)$, a integral de ${f^{\prime \prime}}(x)$ é $-{f^{\prime}}(0)$ e assim por diante. Definindo os coeficientes de $f(0)$, ${f^{\prime}}(0)$, etc, iguais a zero, obtém-se uma sequência de equações que podem ser resolvidas para as constantes $a_{i}$.
 \end{document}
